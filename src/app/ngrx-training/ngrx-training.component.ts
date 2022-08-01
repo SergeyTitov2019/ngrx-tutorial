@@ -1,4 +1,9 @@
-import {Component, OnInit, Pipe} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CountState} from "../reducers/count/count.reducer";
+import {select, Store} from "@ngrx/store";
+import {map, Observable} from "rxjs";
+import {selectCount, selectUpdatedAt} from "../reducers/count/count.selector";
+import {CountClearAction, CountDecreaseAction, CountIncreaseAction} from "../reducers/count/count.action";
 
 @Component({
   selector: 'app-ngrx-training',
@@ -7,22 +12,30 @@ import {Component, OnInit, Pipe} from '@angular/core';
 })
 export class NgrxTrainingComponent implements OnInit {
 
- date = new Date()
+  public count$: Observable<number> = this.store$.pipe(select(selectCount));
+  public disableDecrease$: Observable<boolean> = this.count$.pipe(map(i => i <= 0))
+  public updatedAt$: Observable<number> = this.store$.pipe(select(selectUpdatedAt));
 
-  constructor() { }
+  date = new Date()
+
+  constructor(private store$: Store<CountState>) {
+  }
+
 
   ngOnInit(): void {
   }
 
   increase() {
-
+    this.store$.dispatch(new CountIncreaseAction());
   }
 
   decrease() {
+    this.store$.dispatch(new CountDecreaseAction());
 
   }
 
   clear() {
+    this.store$.dispatch(new CountClearAction());
 
   }
 }

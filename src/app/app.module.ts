@@ -6,7 +6,9 @@ import { NgrxTrainingComponent } from "./ngrx-training/ngrx-training.component";
 import { DurumComponent } from "./durum/durum.component";
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
-import {RegisterComponent} from "./auth/components/register/register.component";
+import { RegisterComponent } from "./auth/components/register/register.component";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {RegisterComponent} from "./auth/components/register/register.component";
     BrowserModule,
     StoreModule.forRoot(reducers, {
       metaReducers
-    })
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

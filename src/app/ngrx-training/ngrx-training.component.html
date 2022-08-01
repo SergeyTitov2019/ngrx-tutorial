@@ -2,10 +2,10 @@
 <h4>NgRx</h4>
 <div class="card-container">
 <button class="card card-small"  (click)="increase()">Increase</button>
-<button class="card card-small"  (click)="decrease()">Decrease</button>
+<button class="card card-small" [disabled]='disableDecrease$ | async' (click)="decrease()">Decrease</button>
 <button class="card card-small"  (click)="clear()">Clear</button>
 </div>
 <div>
-  <span> Counter is : {{1}} : Updated at: {{ date | date: "YY: hh:mm:ss"  }}</span>
+  <span> Counter is : {{ count$ | async}} : Updated at: {{ updatedAt$ | async | date: "YY: hh:mm:ss"  }}</span>
 </div>
 

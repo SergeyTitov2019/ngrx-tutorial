@@ -1,3 +1,7 @@
+import {CountActions, countActionsType} from "./count.action";
+
+export const countNode = 'count'
+
 export interface CountState {
   count: number,
   updatedAt: number
@@ -8,6 +12,26 @@ const initialState: CountState = {
   updatedAt: Date.now()
 }
 
-export const countReducer = (state = initialState, action: any):CountState => {
+export const countReducer = (state = initialState, action: any) => {
+  switch (action.type) {
+    case countActionsType.increase:
+      return {
+        ...state,
+        count: state.count + 1
+      }
+    case countActionsType.decrease:
+      return {
+        ...state,
+        count: state.count - 1
+      }
+    case countActionsType.clear:
+      return {
+        ...state,
+        count: 0
+      }
+
+    default:
+      return state
+  }
   return state;
 }
