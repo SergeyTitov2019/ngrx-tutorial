@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { select, Store } from "@ngrx/store";
 import { registerAction } from "../../store/actions/register.action";
 import { Observable } from "rxjs";
@@ -15,10 +15,10 @@ import {RegisterRequestInterface} from "../../../sared/types/registerRequest.int
 })
 export class RegisterComponent implements OnInit {
 
-  form?: FormGroup;
+  form?: UntypedFormGroup;
   isSubmitting$?: Observable<boolean>
 
-  constructor(private fb: FormBuilder, private store: Store, private authService: AuthService) {
+  constructor(private fb: UntypedFormBuilder, private store: Store, private authService: AuthService) {
   }
 
   ngOnInit(): void {
