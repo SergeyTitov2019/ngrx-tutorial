@@ -6,12 +6,14 @@ import { NgrxTrainingComponent } from "./ngrx-training/ngrx-training.component";
 import { DurumComponent } from "./durum/durum.component";
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import {RegisterComponent} from "./auth/components/register/register.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NgrxTrainingComponent,
-    DurumComponent
+    DurumComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
