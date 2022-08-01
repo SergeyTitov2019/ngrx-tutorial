@@ -1,0 +1,50 @@
+<!--<h3 *ngIf="condition; else: elseCase">I feel good</h3>-->
+<!--<ng-template #elseCase >-->
+<!--  <h3 >I feel bad</h3>-->
+<!--</ng-template>-->
+<!--<button (click)="condition = !condition">Click</button>-->
+<!--<hr/>-->
+<!--<button (click)="generateUser()">Generate User</button>-->
+<!--<ul *ngIf="deepObject && deepObject.user">-->
+<!--  <li>Name is: {{deepObject.user.name}}</li>-->
+<!--  <li>Surname is: {{deepObject.user.surname}}</li>-->
+<!--</ul>-->
+<!--<hr>-->
+<!--<ul>-->
+<!--  <li *ngFor="let user of users; index as i"> {{i+1}}. {{user.name}}</li>-->
+<!--</ul>-->
+
+
+<hr>
+<!--<div *ngFor="let item of [1,2,3,5]; let i = index ">-->
+<!--  <ng-container *ngTemplateOutlet="ref; context: {foo: 123, $implicit: item}"></ng-container>-->
+<!--</div>-->
+
+
+<!--<ng-template #ref let-data="foo" let-prefix>-->
+
+<!--  <div><p>{{prefix}}</p>I am template<span>{{data}}</span></div>-->
+<!--</ng-template>-->
+
+<!--<hr>-->
+<!--<ng-template #defaultTemplate let-element>-->
+<!--  <p>{{element}} I am default template</p>-->
+<!--</ng-template>-->
+
+<!--<div *ngFor="let item of [1,2,3]">-->
+<!--  <ng-container *ngTemplateOutlet="template || defaultTemplate; context: {$implicit: item}" ></ng-container>-->
+<!--</div>-->
+<!--<hr>-->
+
+<!--<ul>-->
+<!--  <li *ngFor="let user of users" [ngSwitch]="user.template">-->
+<!--    <p *ngSwitchCase="'bold'"><b>{{user.name}}</b></p>-->
+<!--    <p *ngSwitchCase="'italic'"><i>{{user.name}}</i></p>-->
+<!--    <p *ngSwitchDefault="'italic'">{{user.name}}</p>-->
+<!--  </li>-->
+<!--</ul>-->
+<h5>{{title.toUpperCase()}}</h5>
+<button (click)="onSayHiFromFoo()">Say Hi !!</button>
+<!--<h5>{{text}}</h5>-->
+
+

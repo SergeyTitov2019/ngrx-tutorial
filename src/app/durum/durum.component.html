@@ -1,0 +1,24 @@
+<hr>
+
+<div class="content">
+  <div>
+    <h2>Durum</h2>
+    <p>Here are some links to help you get started:</p>
+  </div>
+
+
+  <div class="card-container">
+  <button class="card card-small" (click)="_flatBread.next('flat bread')"> Add flat bread</button>
+  <button class="card card-small" (click)="_meat.next('meat')"> Add meat</button>
+  <button class="card card-small" (click)="_tomato.next('tomato')"> Add tomato</button>
+  <button class="card card-small" (click)="_cabbage.next('cabbage')"> Add cabbage</button>
+  <button class="card card-small" (click)="_sauce.next('sauce')"> Add sauce</button>
+</div>
+<ng-container *ngIf="durum$ | async as durum">
+  <section>
+    <h4>Enjoy</h4>
+    <h5>Ingredients</h5>
+    <pre>{{ durum | json }}</pre>
+  </section>
+</ng-container>
+<div>
