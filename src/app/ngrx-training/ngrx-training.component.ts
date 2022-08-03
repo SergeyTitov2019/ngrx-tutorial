@@ -12,8 +12,9 @@ import {CountClearAction, CountDecreaseAction, CountIncreaseAction} from "../red
 })
 export class NgrxTrainingComponent implements OnInit {
 
-  public count$: Observable<number> = this.store$.pipe(select(selectCount));
-  public updatedAt$: Observable<number> = this.store$.pipe(select(selectUpdatedAt));
+  public count$ = this.store$.select(selectCount);
+  // public updatedAt$: Observable<number> = this.store$.pipe(select(selectUpdatedAt));
+  public updatedAt$: Observable<number> = this.store$.select(selectUpdatedAt);
   public disableDecrease$: Observable<boolean> = this.count$.pipe(map(i => i <= 0));
 
   date = new Date()

@@ -10,15 +10,15 @@ import {map} from "rxjs";
 export class AppEffects{
   constructor(private actions$: Actions) {}
 
-  @Effect()
-  updatedAt$(){
-    return this.actions$.pipe(
-      ofType(countActionsType.increase, countActionsType.decrease, countActionsType.updatedAt),
-      map(() => {
-        return new CountUpdatedAtAction({
-          updatedAt: Date.now()
-        })
-      })
-    )
-  }
+  // @Effect()
+  // updatedAt$(){
+  //   return this.actions$.pipe(
+  //     ofType(countActionsType.increase, countActionsType.decrease, countActionsType.updatedAt),
+  //     map(() => {
+  //       return new CountUpdatedAtAction({
+  //         updatedAt: Date.now()
+  //       })
+  //     })
+  //   )
+  // }
 }

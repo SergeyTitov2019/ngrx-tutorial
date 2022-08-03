@@ -1,4 +1,6 @@
-import { Action } from "@ngrx/store";
+import {Action, createAction, props} from "@ngrx/store";
+
+export const COUNTER_KEY = 'count';
 
 export enum countActionsType {
   increase=`[COUNT] increase`,
@@ -6,6 +8,11 @@ export enum countActionsType {
   clear=`[COUNT] clear`,
   updatedAt=`[COUNT] updated at`,
 }
+
+export const increase = createAction(`[COUNT] increase`);
+export const decrease = createAction(`[COUNT] decrease`);
+export const clear = createAction(`[COUNT] clear`);
+export const handleUpdatedAt = createAction(`[COUNT] updated at`, props<{updatedAt: number}>());
 
 export class CountIncreaseAction implements Action {
   readonly type = countActionsType.increase;
